@@ -34,19 +34,35 @@ chrome.extension.sendMessage({}, function (response) {
 							document.querySelector('div#c1 > div > div[data-value="8pm"').click();
 							document.querySelector('div#c2 > div > div[data-value="8:30pm"').click();
 							// get additional info from chrome storage
-							chrome.storage.sync.get('info', (data) => {
+							chrome.storage.sync.get((data) => {
 								// clear placeholder
 								document.querySelector('.iSSROb.snByac').innerText = '';
 								// insert additional info
 								document.getElementById('CghhOe0').innerText = data.info;
+								// add event listener to save btn 
+								document.getElementById('xSaveBu').addEventListener('click', () => {
+									window.location = data.return;
+								});
 							});
 						}
 					}, 100);
+			} else {
+				chrome.storage.sync.clear();
 			}
 			// event listener to add new person
-			chrome.storage.onChanged.addListener((changes, namespace) => {
-				const fullName = changes.first.newValue + ' ' + changes.last.newValue;
-				window.location = 'https://calendar.google.com/calendar/r/eventedit?text=' + fullName + '#/courttracker';
+			chrome.storage.onChanged.addListener(() => {
+				// set return url
+				chrome.storage.sync.get((data) => {
+					if (data.first && data.last) {
+						chrome.storage.sync.set({
+							'return': window.location.href
+						}, () => {
+							// go to calendar to add event
+							const fullName = data.first + ' ' + data.last;
+							window.location = 'https://calendar.google.com/calendar/r/eventedit?text=' + fullName + '#/courttracker';
+						});
+					}
+				});
 			});
 		}
 	}, 10);
