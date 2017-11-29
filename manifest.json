@@ -23,7 +23,8 @@
   },
   "permissions": [
     "https://*/*",
-    "http://*/*"
+    "http://*/*",
+    "storage"
   ],
   "content_scripts": [{
     "matches": [
