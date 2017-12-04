@@ -35,6 +35,7 @@ chrome.extension.sendMessage({}, function (response) {
 							document.querySelector('div#c2 > div > div[data-value="8:30pm"').click();
 							// get additional info from chrome storage
 							chrome.storage.sync.get((data) => {
+								console.log(data);
 								// clear placeholder
 								document.querySelector('.iSSROb.snByac').innerText = '';
 								// insert additional info
@@ -49,21 +50,6 @@ chrome.extension.sendMessage({}, function (response) {
 			} else {
 				chrome.storage.sync.clear();
 			}
-			// event listener to add new person
-			chrome.storage.onChanged.addListener(() => {
-				// set return url
-				chrome.storage.sync.get((data) => {
-					if (data.first && data.last) {
-						chrome.storage.sync.set({
-							'return': window.location.href
-						}, () => {
-							// go to calendar to add event
-							const fullName = data.first + ' ' + data.last;
-							window.location = 'https://calendar.google.com/calendar/r/eventedit?text=' + fullName + '#/courttracker';
-						});
-					}
-				});
-			});
 		}
 	}, 10);
 });
