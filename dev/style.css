@@ -1,0 +1,59 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica, Arial;
+}
+
+h1 {
+  margin: 10px 5px 0px 5px;
+  font-weight: 100;
+}
+
+input,
+textarea {
+  margin: 10px 5px;
+  padding: 5px;
+}
+
+textarea#extra-information {
+  display: block;
+  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 300px;
+  min-height: 50px;
+  border: solid thin #333;
+}
+
+input.name-input {
+  display: inline-block;
+  border: none;
+  border-bottom: solid thin #333;
+  width: 135px;
+}
+
+button.action-btn,
+button.auth-btn {
+  border: none;
+  border-radius: 0px;
+  margin: 5px 5px;
+  padding: 5px 15px;
+}
+
+span#link-to-event {
+  width: 300px;
+  display: block;
+  margin: 10px 5px 5px 5px;
+  font-size: 0.75em;
+}
+
+button.action-btn {
+  background-color: #eee;
+  color: #000;
+}
+
+button.auth-btn {
+  background-color: #333;
+  color: #fff;
+}
