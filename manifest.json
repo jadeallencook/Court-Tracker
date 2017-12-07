@@ -1,6 +1,6 @@
 {
   "name": "Court Tracker",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "manifest_version": 2,
   "description": "Add court events to a custom Google Calendar to track progress.",
   "homepage_url": "http://onflo.io",
@@ -21,19 +21,9 @@
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
   },
-  "permissions": [
-    "https://*/*",
-    "http://*/*",
-    "storage",
-    "tabs"
-  ],
+  "permissions": ["https://*/*", "http://*/*", "https://apis.google.com/*"],
   "content_scripts": [{
-    "matches": [
-      "https://*/*",
-      "http://*/*"
-    ],
-    "js": [
-      "src/inject/inject.js"
-    ]
+    "matches": ["https://*/*", "http://*/*"],
+    "js": ["src/inject/inject.js"]
   }]
 }

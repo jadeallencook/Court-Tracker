@@ -1,36 +1,94 @@
-<!doctype html>
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
-	input.name-input {
-		display: inline-block;
-		width: 35%;
-		padding: 5px;
-	}
-	textarea#info-input {
-		display: block;
-		width: 80%;
-		margin-top: 15px;
-		padding: 5px;
-	}
-	button#add-btn {
-		display: block;
-		margin-top: 15px;
-	}
-</style>
+<!DOCTYPE html>
+<html>
 
-<div id="mainPopup">
+<head>
+	<title>Court Tracker</title>	
+	<meta charset='utf-8' />
+	<style>
+		html,
+		body {
+			margin: 0px;
+			padding: 0px;
+			font-family: Helvetica, Arial;
+			width: 400px;
+			height: 300px;
+		}
+
+		h1 {
+			margin: 10px 5px 0px 5px;
+			font-weight: 100;
+		}
+
+		input,
+		textarea {
+			margin: 10px 5px;
+			padding: 5px;
+		}
+
+		textarea#extra-information {
+			display: block;
+			width: 300px;
+			max-width: 300px;
+			min-width: 300px;
+			max-height: 300px;
+			min-height: 50px;
+			border: solid thin #333;
+		}
+
+		input.name-input {
+			display: inline-block;
+			border: none;
+			border-bottom: solid thin #333;
+			width: 135px;
+		}
+
+		button.action-btn,
+		button.auth-btn {
+			border: none;
+			border-radius: 0px;
+			margin: 5px 5px;
+			padding: 5px 15px;
+		}
+
+		span#link-to-event {
+			width: 300px;
+			display: block;
+			margin: 10px 5px 5px 5px;
+			font-size: 0.75em;
+		}
+
+		button.action-btn {
+			background-color: #eee;
+			color: #000;
+		}
+
+		button.auth-btn {
+			background-color: #333;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header -->
 	<h1>Court Tracker</h1>
-	<input type="text" class="name-input" id="first-name" placeholder="First">
-	<input type="text" class="name-input" id="last-name" placeholder="Last">
-	<textarea id="info-input" placeholder="Additional information..."></textarea>
-	<button id="add-btn">Add To Calendar</button>
+
+	<!-- app content -->
+	<div id="homicide-plugin" style="display: none;">
+		<input type="text" id="first-name" class="name-input" placeholder="First Name" />
+		<input type="text" id="last-name" class="name-input" placeholder="Last Name" />
+		<textarea id="extra-information" placeholder="Extra Information"></textarea>
+		<span id="link-to-event"></span>
+		<button class="action-btn" id="add-to-calendar">Add To Calendar</button>
+	</div>
+
+	<!-- auth btns -->
+	<button id="authorize-button" class="auth-btn" style="display: none;">Authorize</button>
+	<button id="signout-button" class="auth-btn" style="display: none;">Sign Out</button>
+
+	<!-- js -->
 	<script src="app.js"></script>
-</div>
+	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+</body>
+
+</html>
