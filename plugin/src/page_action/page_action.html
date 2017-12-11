@@ -13,82 +13,16 @@
 			width: 400px;
 			height: 300px;
 		}
-
-		h1 {
-			margin: 10px 5px 0px 5px;
-			font-weight: 100;
-		}
-
-		input,
-		textarea {
-			margin: 10px 5px;
-			padding: 5px;
-		}
-
-		textarea#extra-information {
-			display: block;
-			width: 300px;
-			max-width: 300px;
-			min-width: 300px;
-			max-height: 300px;
-			min-height: 50px;
-			border: solid thin #333;
-		}
-
-		input.name-input {
-			display: inline-block;
+		iframe {
+			width: 100%;
+			height: 100%;
 			border: none;
-			border-bottom: solid thin #333;
-			width: 135px;
-		}
-
-		button.action-btn,
-		button.auth-btn {
-			border: none;
-			border-radius: 0px;
-			margin: 5px 5px;
-			padding: 5px 15px;
-		}
-
-		span#link-to-event {
-			width: 300px;
-			display: block;
-			margin: 10px 5px 5px 5px;
-			font-size: 0.75em;
-		}
-
-		button.action-btn {
-			background-color: #eee;
-			color: #000;
-		}
-
-		button.auth-btn {
-			background-color: #333;
-			color: #fff;
 		}
 	</style>
 </head>
 
 <body>
-	<!-- header -->
-	<h1>Court Tracker</h1>
-
-	<!-- app content -->
-	<div id="homicide-plugin" style="display: none;">
-		<input type="text" id="first-name" class="name-input" placeholder="First Name" />
-		<input type="text" id="last-name" class="name-input" placeholder="Last Name" />
-		<textarea id="extra-information" placeholder="Extra Information"></textarea>
-		<span id="link-to-event"></span>
-		<button class="action-btn" id="add-to-calendar">Add To Calendar</button>
-	</div>
-
-	<!-- auth btns -->
-	<button id="authorize-button" class="auth-btn" style="display: none;">Authorize</button>
-	<button id="signout-button" class="auth-btn" style="display: none;">Sign Out</button>
-
-	<!-- js -->
-	<script src="app.js"></script>
-	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+	<iframe src="https://jadeallencook.github.io/Court-Tracker/web/"></iframe>
 </body>
 
 </html>
